@@ -4,7 +4,6 @@
 
 // Creazione array con 5 numeri casuali 
 const userRandomNumbersArray = randomNumberGenerator(5, 1, 100);
-console.log(userRandomNumbersArray);
 alert(userRandomNumbersArray);
 
 // Funzione per generare un array di numeri casuali
@@ -32,28 +31,23 @@ function getRndInteger(min, max) {
 setTimeout(function() {
     // Creazione array vuoto
     const seenNumbersArray = [];
-    const guessedNumbers = [];
     
-    for(let i = 0; i < 5; i++) {
+    while(seenNumbersArray.length < 5) {
         // Chiedere all'utente di inserire uno alla volta i numeri di userRandomNumbersArray
         const userNumbers = parseInt(prompt('Inserisci i numeri visti precedentemente'));
-        console.log(userNumbers);
+
         // Aggiungere i numeri inseriti dall'utente dentro array vuoto precedentemente creato, solo se essi non sono già presenti
-        if(!seenNumbersArray.includes(userNumbers)) {
+        if(!seenNumbersArray.includes(userNumbers) && !isNaN(userNumbers) && (userNumbers >= 1 && userNumbers <= 100)) {
             seenNumbersArray.push(userNumbers);
         }
-        console.log(seenNumbersArray);
-        if(userRandomNumbersArray.includes(userNumbers)) {
-            guessedNumbers.push(userNumbers);
-        }      
     }
 
-    console.log(guessedNumbers);
+    const guessedNumbers = [];
+    for(let i = 0; i < 5; i++) {
+        if(userRandomNumbersArray.includes(seenNumbersArray[i])) {
+            guessedNumbers.push(seenNumbersArray[i]);
+        }
+    }
+    alert(`Numeri Indovinati: ${guessedNumbers.length}`);
 
-    
-    // for(let i = 0; i < 5; i++) {
-    //     // quanti numeri 
-    //     // e quali sono stati indovinati
-    // }
-
-}, 2000)
+}, 30000)
