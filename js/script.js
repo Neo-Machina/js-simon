@@ -32,15 +32,28 @@ function getRndInteger(min, max) {
 setTimeout(function() {
     // Creazione array vuoto
     const seenNumbersArray = [];
+    const guessedNumbers = [];
+    
     for(let i = 0; i < 5; i++) {
         // Chiedere all'utente di inserire uno alla volta i numeri di userRandomNumbersArray
         const userNumbers = parseInt(prompt('Inserisci i numeri visti precedentemente'));
         console.log(userNumbers);
-        // Aggiungere i numeri inseriti dall'utente dentro array vuoto precedentemente creato, solo se essi non sono giù presenti
+        // Aggiungere i numeri inseriti dall'utente dentro array vuoto precedentemente creato, solo se essi non sono già presenti
         if(!seenNumbersArray.includes(userNumbers)) {
             seenNumbersArray.push(userNumbers);
         }
         console.log(seenNumbersArray);
+        if(userRandomNumbersArray.includes(userNumbers)) {
+            guessedNumbers.push(userNumbers);
+        }      
     }
+
+    console.log(guessedNumbers);
+
+    
+    // for(let i = 0; i < 5; i++) {
+    //     // quanti numeri 
+    //     // e quali sono stati indovinati
+    // }
 
 }, 2000)
