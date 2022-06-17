@@ -48,6 +48,6 @@ setTimeout(function() {
             guessedNumbers.push(seenNumbersArray[i]);
         }
     }
-    alert(`Numeri Indovinati: ${guessedNumbers.length}`);
+    alert(`Il tuo punteggio è: ${guessedNumbers.length}. I numeri indovinati sono; ${guessedNumbers}.`);
 
 }, 30000)
